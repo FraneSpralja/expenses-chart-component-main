@@ -1,0 +1,92 @@
+* {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+}
+
+body {
+    background-color: hsl(27, 66%, 92%);
+}
+
+#app {
+    width: 30%;
+    margin: auto;
+}
+
+.balance-block {
+    background: #ec755d;
+    border-radius: 10px;
+    margin: auto;
+    display: flex;
+    padding: 10px;
+}
+
+.body-balance {
+    height: 70px;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 10px;
+    color: hsl(27, 66%, 92%);
+}
+
+span.body-balance_total {
+    font-weight: 700;
+    font-size: 45px;
+}
+
+.logo-balance {
+    display: flex;
+    margin-left: auto;
+}
+
+.logo-balance > img {
+    width: 100%;
+}
+
+.main-spend {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: hsl(26, 44%, 94%);
+    margin-top: 20px;
+}
+
+h2.main-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: hsl(25, 47%, 15%);
+}
+
+div#charts {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 200px;
+    margin-bottom: 40px;
+}
+
+div#charts > div {
+    flex: 10%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+}
+
+div#charts > div > div {
+    background-color: #ec755d;
+    border-radius: 7px;
+    width: 80%;
+    cursor: pointer;
+}
+
+div#charts > div > div.active:hover{
+    background-color: #b4dfe5;
+}
+
+div#charts > div > div:hover{
+    background-color: hsl(10deg 100% 76%);
+}
