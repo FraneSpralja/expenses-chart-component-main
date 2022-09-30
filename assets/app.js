@@ -1,4 +1,4 @@
-const url = '../data.json';
+const url = 'data.json';
 const App = document.querySelector('#app');
 
 eventListener()
