@@ -53,6 +53,8 @@ function printInfo(arr) {
     const chartsArr = document.querySelectorAll('#charts > div > div');
 
     getDateOfChart(chartsArr)
+    tooltipAmountOnChart();
+
     const total = newArr.reduce((a,b) => a + b);
 
     console.log(newArr)
@@ -153,5 +155,27 @@ function getDateOfChart(arr) {
         if(nameDate == day) {
             arr[i].classList.add('active')
         }
+    }
+}
+
+function tooltipAmountOnChart() {
+    const chartDiv = document.querySelectorAll('#charts > div')
+    
+    for(let i = 0; i < chartDiv.length; i++) {
+        const chartFather = chartDiv[i];
+        const chart = chartFather.querySelector('[data-id]');
+        
+        chart.addEventListener('mouseover', () => {
+
+            const tooltip = document.createElement('div');
+            tooltip.classList.add('amount-tooltip');
+            tooltip.textContent = `$${chart.dataset.id}`; 
+
+            chart.appendChild(tooltip);
+        })
+
+        chart.addEventListener('mouseout', () => {
+            document.querySelector('.amount-tooltip').remove()
+        })
     }
 }

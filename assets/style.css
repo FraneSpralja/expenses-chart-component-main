@@ -8,7 +8,7 @@ body {
 }
 
 #app {
-    width: 30%;
+    width: 35%;
     margin: auto;
 }
 
@@ -64,7 +64,8 @@ div#charts {
     justify-content: space-between;
     align-items: flex-end;
     height: 200px;
-    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid hsl(28, 10%, 53%);
 }
 
 div#charts > div {
@@ -74,13 +75,19 @@ div#charts > div {
     justify-content: center;
     align-items: center;
     row-gap: 10px;
+    position: relative;
+    color: hsl(28, 10%, 53%);
 }
 
 div#charts > div > div {
     background-color: #ec755d;
     border-radius: 7px;
-    width: 80%;
+    width: 70%;
     cursor: pointer;
+}
+
+div#charts > div > div.active {
+    background: #76b5bc;
 }
 
 div#charts > div > div.active:hover{
@@ -89,4 +96,65 @@ div#charts > div > div.active:hover{
 
 div#charts > div > div:hover{
     background-color: hsl(10deg 100% 76%);
+}
+
+.amount-tooltip {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    display: block;
+    background-color: #353535;
+    padding: 7px;
+    border-radius: 7px;
+    z-index: 1;
+}
+
+.bottom-spend {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 10px;
+}
+
+.total-spend-block {
+    display: flex;
+    flex-flow: column;
+}
+
+span.total-spend-text {
+    color: hsl(28, 10%, 53%);
+}
+
+span.total-spend {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1;
+    padding-top: 5px;
+}
+
+.total-percent-block {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+span.percent-spend-text {
+    font-weight: 700;
+}
+
+@media(max-width: 690px) {
+    #app {
+        width: 95%;
+    }
+
+    h2.main-title {
+        font-size: 27px;
+    }
+
+    span.total-spend {
+        font-size: 43px;
+    }
 }
