@@ -20,6 +20,7 @@ async function getData() {
 const newArr = []
 
 function printInfo(arr) {
+
     printSpendHTML()
 
     const charts = document.querySelector('#charts');
@@ -49,16 +50,13 @@ function printInfo(arr) {
         newArr.push(amount)
     });
 
-
     const chartsArr = document.querySelectorAll('#charts > div > div');
+    
+    const total = newArr.reduce((a , b) => a + b);
 
     getDateOfChart(chartsArr)
-    tooltipAmountOnChart();
-
-    const total = newArr.reduce((a,b) => a + b);
-
-    console.log(newArr)
-    console.log(total)
+    tooltipAmountOnChart(total);
+    printTotalSpend(total);
 }
 
 function printBalance() {
@@ -73,7 +71,7 @@ function printBalance() {
 
     const totalAmountBalance = document.createElement('span');
     totalAmountBalance.classList.add('body-balance_total');
-    totalAmountBalance.textContent = `$${1000}`;
+    totalAmountBalance.textContent = `$${prompt('What is your total?')}`;
 
     const logoBalanceDiv = document.createElement('div');
     logoBalanceDiv.classList.add('logo-balance');
@@ -116,14 +114,14 @@ function printSpendHTML() {
 
     const totalSpend = document.createElement('span');
     totalSpend.classList.add('total-spend');
-    totalSpend.textContent = `$1000`;
+    totalSpend.textContent = `$${0}`;
 
     const totalPercentDiv = document.createElement('div');
     totalPercentDiv.classList.add('total-percent-block');
 
     const totalPercentSpan = document.createElement('span');
     totalPercentSpan.classList.add('percent-spend-text');
-    totalPercentSpan.textContent = `2.4%`;
+    totalPercentSpan.textContent = `+2.4%`;
 
     const totalPercentText = document.createElement('span');
     totalPercentText.classList.add('total-spend-text');
@@ -178,4 +176,10 @@ function tooltipAmountOnChart() {
             document.querySelector('.amount-tooltip').remove()
         })
     }
+}
+
+function printTotalSpend(total) {
+    setTimeout(() => {
+        document.querySelector('span.total-spend').textContent = `$${total}`
+    }, 500)
 }
