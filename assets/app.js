@@ -10,11 +10,15 @@ function eventListener() {
 
 }
 
-async function getData() {
-    const response = await fetch(url);
-    const result = await response.json();
+function getData() {
+    // const response = await fetch(url);
+    // const result = await response.json();
 
-    printInfo(result)
+    fetch(url)
+        .then(response => response.json())
+        .then(data => printInfo(data))
+
+    // printInfo(result)
 }
 
 const newArr = []
