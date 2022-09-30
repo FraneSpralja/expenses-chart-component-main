@@ -1,4 +1,5 @@
-const url = 'data.json';
+import { mainArr } from "./data.js";
+
 const App = document.querySelector('#app');
 
 eventListener()
@@ -14,17 +15,14 @@ function getData() {
     // const response = await fetch(url);
     // const result = await response.json();
 
-    fetch(url)
-        .then(response => response.json())
-        .then(data => printInfo(data))
-        .catch(err => console.log(err))
+        printInfo(mainArr)
 
     // printInfo(result)
 }
 
-const newArr = []
 
 function printInfo(arr) {
+    const newArr = []
 
     printSpendHTML()
 
