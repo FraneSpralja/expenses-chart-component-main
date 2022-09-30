@@ -17,6 +17,7 @@ function getData() {
     fetch(url)
         .then(response => response.json())
         .then(data => printInfo(data))
+        .catch(err => console.log(err))
 
     // printInfo(result)
 }
@@ -81,7 +82,7 @@ function printBalance() {
     logoBalanceDiv.classList.add('logo-balance');
 
     const imgLogoBalance = document.createElement('img');
-    imgLogoBalance.src = '../images/logo.svg';
+    imgLogoBalance.src = './images/logo.svg';
 
     bodyBalance.appendChild(balanceTitle);
     bodyBalance.appendChild(totalAmountBalance);
